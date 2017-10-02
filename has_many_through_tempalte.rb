@@ -1,5 +1,5 @@
-generate(:model, 'user')
-generate(:model, 'post')
+generate(:model, 'user name')
+generate(:model, 'post title')
 generate(:model, 'bookmark user:references post:references')
 
 rake('db:migrate')
@@ -11,9 +11,9 @@ insert_into_file 'app/models/post.rb', "has_many :bookmarks\n", after: "class Po
 
 create_file 'db/seeds.rb' do
   <<~SEED
-    User.create!
-    Post.create!
-    Post.create!
+    User.create!(name: 'willnet')
+    Post.create!(title: 'first post')
+    Post.create!(title: 'second post')
   SEED
 end
 
